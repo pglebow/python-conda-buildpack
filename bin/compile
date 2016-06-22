@@ -64,6 +64,7 @@ if [ -e "$BUILD_DIR/channels.txt" ]; then
 	do
 		$CONDA_BIN/conda config --add channels $channel
 		$CONDA_BIN/conda install gurobi
+		$CONDA_BIN/conda install flask
 	done
 fi
 # Default Conda env is root
