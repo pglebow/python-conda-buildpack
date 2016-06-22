@@ -94,5 +94,6 @@ grep -rlI $BUILD_DIR $BUILD_DIR | xargs sed -i.bak "s|$BUILD_DIR|/home/vcap/app|
 # Add Conda path to profile
 mkdir -p $(dirname $PROFILE_PATH)
 echo "export PATH=$HOME/app/.conda/bin:\$PATH" >> $PROFILE_PATH
-
+echo "export PATH=$HOME/app/gurobi651/bin:\$PATH" >> $PROFILE_PATH
+echo "export LD_LIBRARY_PATH=$HOME/app/gurobi651/lib:\$LD_LIBRARY_PATH" >> $PROFILE_PATH
 echo "-----> Finished compile step"
