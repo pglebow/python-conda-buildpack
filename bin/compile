@@ -58,6 +58,13 @@ echo "-----> Installing Dependencies..."
 $CONDA_BIN/conda update --yes --quiet conda
 $CONDA_BIN/conda install --yes --quiet pip
 
+# If a file called channels.txt exists, add the channels to conda
+if [ -e "$BUILD_DIR/channels.txt" ]; then
+	for channel in `cat $BUILD_DIR/channels.txt`;
+	do
+		$CONDA_BIN/conda config --add channels $channel
+	done
+fi
 # Default Conda env is root
 CONDA_ENV="root"
 # First check if environment.yml exists and if so use with conda-env
